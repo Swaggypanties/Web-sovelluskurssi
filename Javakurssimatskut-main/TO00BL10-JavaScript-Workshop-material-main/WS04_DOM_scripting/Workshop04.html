@@ -3,20 +3,20 @@
 	<head>
 		<title>Workshop 4</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="style.css">
 	</head>
-	<body class="ws4">
-		<h1>Workshop 4: DOM Scripting</h1>
+	<body class="ws4" id="keho4">
+		<h1 id="kyltti">Workshop 4: DOM Scripting</h1>
 		<hr />
 		<p>In this exercise we will practice the art of DOM Scripting with JavaScript. Use the lecture-material as a reference guide side by side these exercises. It might also be a good idea to save the lines of code you write during the exercises for later use. </p>
 
 		<hr/>
-		<h2>Exercise 1: Basic  DOM Manipulation</h2>
+		<h2 id="kyltti2">Exercise 1: Basic  DOM Manipulation</h2>
 		<p>&nbsp;Below you will see three buttons. Edit the source code and add an onClick-events to these buttons. Use Developer Console to find the </p>
 		<p>
-		  <button onclick="changeHeading();">Button 1</button>
-		  <button onclick="secondButton">Button 2</button>
-		  <button onclick="">Button 3</button>
+		  <button id="muuttuja">The button</button>
+		  <button id="muuttuja2">Button 2</button>
+		  <button id="muuttuja3" onclick="myFunction()">Button 3</button>
 		</p>
 
 		<ul>
@@ -45,12 +45,13 @@
 				<span id="surpise">Surprise</span>
 			</label>
 		</p>
+		<div id="teksti"></div>
 		<ul>
 		  <li>First checkbox: Find out which element has been described with the id &quot;me&quot;. Change the visibility (display value) of the element to none. What happens?</li>
 		  <li>Second checkbox should return the visibility of the element to a normal state (block).</li>
 		  <li>Third checkbox should find the elements with class &quot;surprise&quot; and change the font size to 20.</li>
 		</ul>
-		<div id="me" class="red-box"></div>
+		<div id="me" class="red-box" > </div>
 		<p>&nbsp;</p>
 		<hr/>
 		<h2>Exercise 3: Images and pulldowns</h2>
@@ -60,22 +61,22 @@
 				<li>When you have accomplished the above, change the image (id=&quot;carimage&quot;) below based on the users choice on the pulldown menu below. Find appropriate images from the web.
 			</ul>
 		  <p>Select a new car from the list.</p>
-		  <select name="mySelect" id="mySelect" onchange="">
-			<option value="BMW">BMW         
-			<option value="Audi">Audi
-			<option value="Mercedes">Mercedes
-			<option value="Volvo">Volvo
+		  <select name="mySelect" id="mySelect" onchange="paivita()">
+			<option value="BMW" data-img-url="kuva/bmw.jpg">BMW </option>        
+			<option value="Audi" data-img-url="kuva/audi.jpg">Audi</option>
+			<option value="Mercedes" data-img-url="kuva/mersu.jpg">Mercedes</option>
+			<option value="Volvo" data-img-url="kuva/volvo.jpg">Volvo</option>
 		  </select>
 		  <br>
 		  <br>
-		<img alt="" onmouseover="" onmouseout="" style="left: 0px; opacity: 1;" src="http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Rendering.jpg" width="400" id="carimage"/>
+		<img alt="car" id="carImage" onmouseover="reunat(this)" onmouseout="eiReunat(this)" style="position: relative; opacity: 1; width: 200px;;" src="" />
 		<hr/>
 		<h2>Exercise 4: Moving things around</h2>
 		<ul>
 		  <li>
 			<p class="surprise">You can do neat things by editing CSS-rules via  JavaScript. See the examples in lecture slides. Then try these:</p>
 			<ol>
-			  <li><button onclick="changePosition()">Move!</button>Select the div with an id &quot;carimage&quot; and move it 200px left and 500px down</li>
+			  <li><button onclick="changePosition(this)">Move!</button>Select the div with an id &quot;carimage&quot; and move it 200px left and 500px down</li>
 			  <li><button onclick="setInterval(function(){doMove();},1000); ">Animate</button> Write a  funtion doMove() which  will move the image across the screen, or even better: back and forth on  the screen. The Interval required has already been added to the onclick -event of the list item.</li>
 			  <li><button onclick="setInterval(function(){fadeOut();},250);">Fade out!</button> Wite  a function fadeOut() which will slowly decrease the opacity of the image from 1.0 to  0 making it fade out. The Interval required has already been added to the onclick -event of the list item</li>
 			  <li><button onclick="remove()">Disappear! </button>Finally, write JavaScript which will remove the image from the page</li>
@@ -148,7 +149,9 @@
 			</li>
 			<li dir="ltr">How would you replace the contents only on the ones with the word &lsquo;Select&rsquo; in them?</li>
 		</ul>
+		<script src="scripts.js"></script>
 	</body>
+
 </html>
 
 
