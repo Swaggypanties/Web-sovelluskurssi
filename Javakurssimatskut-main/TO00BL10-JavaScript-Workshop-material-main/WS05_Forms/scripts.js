@@ -1,4 +1,6 @@
 function laheta(event) {
+
+    event.preventDefault(); 
     var mail = document.getElementById("email").value;
     var comments = document.getElementById("comment").value;
 
@@ -18,30 +20,20 @@ function laheta(event) {
         email.classList.add("error");
         emailError.textContent = "Please enter your email address.";
         hasError = true;
-    }
-
-    if (email.value === "") {
+    }else if (mail.length > 15) {
         email.classList.add("error");
-        emailError.textContent = "Please enter your email address.";
+        emailError.textContent = "Email length is too long";
+        hasError = true;;
+    } else if (mail.length < 2) {
+        email.classList.add("error");
+        emailError.textContent = "Email length is too short";
         hasError = true;
-    }
-    
-    if (mail.length > 15) {
-        alert("Email length is too long");
-    } else if (mail.length < 6) {
-        alert ("Email length is too short")
     } else {
         alert("Email: " + mail)
     }
     
 
-    if (comments === "") {
-        alert("Please add a comment");
-    } else if (comments.length > 50) {
-        alert("The comment is too long keep it under 50 characters");
-    } else {
-        alert("Comment: " + comments)
-    }
+    
 
     if (comment.value === "") {
         comment.classList.add("error");
@@ -51,6 +43,8 @@ function laheta(event) {
         comment.classList.add("error");
         commentError.textContent = "The comment is too long, keep it under 50 characters.";
         hasError = true;
+    }else {
+        alert("Comment: " + comments)
     }
 
     
