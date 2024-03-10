@@ -147,9 +147,27 @@ function fadeOut() { // tämä haalistaa auton kuvaa 1.0 -> 0
 
 };
 
-function remove() {
+function remove() { // poistaa kuvan
     var img = document.getElementById('carImage');
     if (img) {
         img.remove();
     }
+};
+
+function insertRows() { //Lisää rivin
+    var table = document.getElementById("data").getElementsByTagName('tbody')[0];
+
+    var row = table.insertRow(-1);
+
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+
+    var name = document.getElementById("textfield").value;
+    var position = document.getElementById("textfield2").value;
+    var salary = document.getElementById("textfield3").value;
+
+    cell1.innerHTML = name;
+    cell2.innerHTML = position;
+    cell3.innerHTML = salary;
 };
