@@ -163,7 +163,7 @@ function insertRows() { //Lisää rivin
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
 
-    var name = document.getElementById("textfield").value;
+    var name = document.getElementById("textfield").value; //hakee ne syötetyt arvot
     var position = document.getElementById("textfield2").value;
     var salary = document.getElementById("textfield3").value;
 
