@@ -1,6 +1,6 @@
-function laheta(event) {
+function laheta(event) {   // Tämä tarkastaa ssyötteet ja sen sisällön
 
-    event.preventDefault(); 
+    event.preventDefault(); //estää sivun päivittämistä
     var mail = document.getElementById("email").value;
     var comments = document.getElementById("comment").value;
 
@@ -16,34 +16,34 @@ function laheta(event) {
 
     let hasError = false;
 
-    if (email.value === "") {
+    if (email.value === "") {  //Jos tyhjä syöte niin antaa tämän
         email.classList.add("error");
         emailError.textContent = "Please enter your email address.";
         hasError = true;
-    }else if (mail.length > 15) {
+    }else if (mail.length > 15) { // jos syötteessö on enemmän kuin 15 merkkiä niin tämä
         email.classList.add("error");
         emailError.textContent = "Email length is too long";
         hasError = true;;
-    } else if (mail.length < 2) {
+    } else if (mail.length < 6) { //jos syötteessö on liian vähän merkkejä
         email.classList.add("error");
         emailError.textContent = "Email length is too short";
         hasError = true;
-    } else {
+    } else { //  Jos syöte on oikein syötetty
         alert("Email: " + mail)
     }
     
 
     
 
-    if (comment.value === "") {
+    if (comment.value === "") { //Jos kommentti syöte on tyhjä
         comment.classList.add("error");
         commentError.textContent = "Please add a comment.";
         hasError = true;
-    } else if (comment.value.length > 50) {
+    } else if (comment.value.length > 50) { //Jos kommentti syötteessö on liikaa merkkejä
         comment.classList.add("error");
         commentError.textContent = "The comment is too long, keep it under 50 characters.";
         hasError = true;
-    }else {
+    }else { //Jos syöte on oikein
         alert("Comment: " + comments)
     }
 
