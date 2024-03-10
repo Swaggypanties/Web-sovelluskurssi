@@ -27,20 +27,20 @@
     <p data-line="12">c) Should an error occur, highlight the erroneous field and provide some feedback to the user.
         Preferably by displaying some text message on the page, next to the input field. See the lecture slides for
         demo.</p>
-    <form onsubmit="">
+    <form onsubmit="laheta(event)" id="myForm">
         <div class="no-border">
             <label>Email address:<br>
-                <input type="text" name="email">
+                <input type="email" name="email" id="email" required>
             </label>
         </div>
         <div class="no-border">
             <label>
                 Comment:<br>
             </label>
-            <textarea name="comment"></textarea>
+            <textarea name="comment" id="comment"></textarea>
         </div>
         <br>
-        <input type="submit" value="Send">
+        <input type="submit" value="Send" id="Send">
     </form>
 
     <hr />
@@ -132,7 +132,7 @@
                 regarding on the selected contact method.</p>
         </li>
     </ul>
-    <script src="js/shopping.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
