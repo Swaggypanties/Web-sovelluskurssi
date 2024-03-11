@@ -70,6 +70,7 @@ function laske(){
         totalcost *= 0.8;
     }else if (vuosi >= 5){
         totalcost=totalcost * 0.8 - 5   ;
+        alert("Thank you for joining more than 5 years! Here is a 5$ discount ")
         
         
     }
