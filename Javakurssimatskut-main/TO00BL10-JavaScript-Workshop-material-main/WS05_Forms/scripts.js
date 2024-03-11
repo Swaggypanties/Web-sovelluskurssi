@@ -77,9 +77,9 @@ function laske(){
 
     document.getElementById("cost").value = "$" + totalcost.toFixed(2);
 
-    console.log("Hinta:", hinta); // Debugging statement
-    console.log("Vuosi:", vuosi); // Debugging statement
-    console.log("Total cost:", totalcost); // Debugging statement
+    console.log("Hinta:", hinta); // Nämä tarkastaa ettän toimiiko se koodi oikeasti
+    console.log("Vuosi:", vuosi); 
+    console.log("Total cost:", totalcost); 
 
     return false;
 
