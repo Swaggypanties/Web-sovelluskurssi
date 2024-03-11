@@ -49,3 +49,43 @@ function laheta(event) {   // Tämä tarkastaa ssyötteet ja sen sisällön
 
     
 }
+
+function laske(){
+    var type = document.getElementById("type").value;
+    var vuosi = parseInt(document.getElementById("years").value);
+    var prices = {
+        basic: 10,
+        premium: 15,
+        gold: 20,
+        platinum: 25
+    };
+
+    var hinta = prices[type];
+
+    var totalcost = hinta * vuosi;
+
+    
+
+    if (vuosi > 1 && vuosi < 5){
+        totalcost *= 0.8;
+    }else if (vuosi >= 5){
+        totalcost=totalcost * 0.8 - 5   ;
+        
+        
+    }
+
+    document.getElementById("cost").value = "$" + totalcost.toFixed(2);
+
+    console.log("Hinta:", hinta); // Debugging statement
+    console.log("Vuosi:", vuosi); // Debugging statement
+    console.log("Total cost:", totalcost); // Debugging statement
+
+    return false;
+
+}
+
+document.getElementById("submit").addEventListener("click",function(event){
+    event.preventDefault();
+    laske();
+});
+
