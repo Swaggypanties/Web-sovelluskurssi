@@ -1,0 +1,28 @@
+body {
+    background-color: blueviolet;
+}
+
+.center {
+    text-align: center;
+    position: relative;
+    top: 300px;
+    
+
+}
+
+#wlcm1 {
+    background-color: red;
+    top: 50px;
+}
+
+.center1 {
+    text-align: center;
+    position: relative;
+    top: 300px;
+    border: 10px;
+    
+
+}
+#name{
+    border: 5px solid peru;
+}
