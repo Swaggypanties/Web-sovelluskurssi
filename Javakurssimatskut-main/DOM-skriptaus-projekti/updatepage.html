@@ -1,0 +1,41 @@
+<!doctype html>
+<HTML lang="en">
+	<head>
+		<title>Update data</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="stylefp.css">
+	</head>
+        <body>
+            
+        <div class="container">
+            <div class="center" id="wlcm">
+                <h1 id="wlcm">Update your data</h1>
+                <h2>Please submit your updated information below</h2>
+            </div>
+            <form onsubmit="laheta(event)" method="get" action="secondpage.html">
+                    <div class="center1">
+                        <h2>Name</h2>
+                        <input type="text" id="Name" name="Name" placeholder="Name" required > <br> <br>
+                        <h2>Weight(kg)</h2>
+                        <input type="number" id="Weight" name="Weight" placeholder="weight(Kg)" >
+                        <br>
+                        <span id="weightError" class="error-message"></span>
+                        <br> <br>
+                        <h2>Height(cm)</h2>
+                        <input type="number" id="Height" name="Height" placeholder="Height(Cm)" >
+                        <br>
+                        <span id="heightError" class="error-message"></span>
+                        <br> <br>
+                        
+                        <input type="submit" value="Submit" id="submit">
+                    </div>
+                </div>
+            </form>
+            
+            
+            
+            
+            
+        </body>
+        <script src="scripts.js"></script>
+</HTML>
