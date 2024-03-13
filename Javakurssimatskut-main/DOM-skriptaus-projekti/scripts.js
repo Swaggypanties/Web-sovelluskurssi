@@ -4,26 +4,23 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     let nameElement = document.getElementById("Name");
     let weightElement = document.getElementById("Weight");
     let heightElement = document.getElementById("Height");
-    let trainElement = document.getElementById("train");
     let weightsError = document.getElementById("weightError");
     let heightsError = document.getElementById("heightError");
-    let trainsError = document.getElementById("trainError");
 
-    if (nameElement && weightElement && heightElement && weightsError && heightsError && trainsError) {
+    if (nameElement && weightElement && heightElement && weightsError && heightsError) {
         let hasError = false;
 
         let name = nameElement.value;
         let weight = weightElement.value;
         let height = heightElement.value;
-        let trains = trainElement.value;
+        
 
 
         weightElement.classList.remove("error");
         heightElement.classList.remove("error");
-        trainElement.classList.remove("error");
         weightsError.textContent = "";
         heightsError.textContent = "";
-        trainsError.textContent = "";
+
 
     
 
@@ -36,11 +33,6 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     if (height === "" || Number(height) <= 0) {
         heightElement.classList.add("error");
         heightsError.textContent = "Please add a natural value";
-        hasError = true;
-    }
-    if (trains === "" || Number(train) < 0) {
-        trainElement.classList.add("error");
-        trainsError.textContent = "You can't have a negative value"
         hasError = true;
     }
 
@@ -61,39 +53,53 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+
+    var userName = localStorage.getItem('Name'); // Retrieve the name from Local Storage
+    var wlcmMessageElement = document.getElementById('wlcmMessage');
+    if (userName && wlcmMessageElement) { // Check if userName exists
+        wlcmMessageElement.textContent = 'Welcome, ' + userName + '!';
+    }
+
+    var formElement = document.querySelector('information');
+    if (formElement) {
+        formElement.onsubmit = laheta; // Attach the event handler
+    }
+});
+
 function lahetan(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     event.preventDefault();// estää sivun päivittämistä
 
-    let heightElement = document.getElementById("Height");
+    let kcalElement = document.getElementById("kcal");
     let trainElement = document.getElementById("train");
-    let heightsError = document.getElementById("heightError");
-    let trainsError = document.getElementById("trainError");
+    let kcalsError = document.getElementById("kcalError");
+    let trainsError = document.getElementById("trainsError");
 
-    if (heightsError && trainsError) {
+    if (kcalsError && trainsError) {
         let hasError = false;
 
     
-        let height = heightElement.value;
+        let kcals = kcalElement.value;
         let trains = trainElement.value;
 
 
-        heightElement.classList.remove("error");
+        kcalElement.classList.remove("error");
         trainElement.classList.remove("error");
-        heightsError.textContent = "";
+        kcalsError.textContent = "";
         trainsError.textContent = "";
 
     
 
-    if (weight === "" || Number(weight) <= 0) {
-        weightElement.classList.add("error");
-        weightsError.textContent = "Please add a natural value";
+    if (kcals === "" || Number(kcals) < 0) {
+        kcalElement.classList.add("error");
+        kcalsError.textContent = "You can't have a negative value";
         hasError = true;
     }
 
 
-    if (trains === "" || Number(train) < 0) {
+    if (trains === "" || Number(trains) < 0) {
         trainElement.classList.add("error");
-        trainsError.textContent = "You can't have a negative value"
+        trainsError.textContent = "You can't have a negative value";
         hasError = true;
     }
 
@@ -101,8 +107,8 @@ function lahetan(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 
     if (!hasError){
 
-        localStorage.setItem("Weight", weight);
-        localStorage.setItem("train", train);
+        localStorage.setItem("kcal", kcals);
+        localStorage.setItem("train", trains);
 
         window.location.href = 'summarypage.html';
         
@@ -113,19 +119,6 @@ function lahetan(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-
-    var userName = localStorage.getItem('Name'); // Retrieve the name from Local Storage
-    var wlcmMessageElement = document.getElementById('wlcmMessage');
-    if (userName && wlcmMessageElement) { // Check if userName exists
-        wlcmMessageElement.textContent = 'Welcome, ' + userName + '!';
-    }
-
-    var formElement = document.querySelector('form');
-    if (formElement) {
-        formElement.onsubmit = laheta; // Attach the event handler
-    }
-});
 
 var subjectObject = {
     "None": {
