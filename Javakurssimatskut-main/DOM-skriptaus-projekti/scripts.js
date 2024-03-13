@@ -28,6 +28,11 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
         heightsError.textContent = "";
 
 
+    if (age === "" || Number(age) <= 0) {
+        ageElement.classList.add("error");
+        agesError.textContent = "Please add a natural value";
+        hasError = true;
+        }
     
 
     if (weight === "" || Number(weight) <= 0) {
@@ -37,12 +42,6 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     }
 
     if (height === "" || Number(height) <= 0) {
-        heightElement.classList.add("error");
-        heightsError.textContent = "Please add a natural value";
-        hasError = true;
-    }
-
-    if (age === "" || Number(age) <= 0) {
         heightElement.classList.add("error");
         heightsError.textContent = "Please add a natural value";
         hasError = true;
@@ -73,6 +72,48 @@ document.addEventListener('DOMContentLoaded', function() {
     var wlcmMessageElement = document.getElementById('wlcmMessage');
     if (userName && wlcmMessageElement) { // Check if userName exists
         wlcmMessageElement.textContent = 'Welcome, ' + userName + '!';
+    }
+
+    var formElement = document.querySelector('information');
+    if (formElement) {
+        formElement.onsubmit = laheta; // Attach the event handler
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var userAge = localStorage.getItem('Age'); // Retrieve the age from Local Storage
+    var infoElement = document.getElementById('info');
+    if (userAge && infoElement) { // Check if userName exists
+        infoElement.textContent = 'Age: ' + userAge;
+    }
+
+    var formElement = document.querySelector('information');
+    if (formElement) {
+        formElement.onsubmit = laheta; // Attach the event handler
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var userWeight = localStorage.getItem('Weight'); // Retrieve the age from Local Storage
+    var info1Element = document.getElementById('info1');
+    if (userWeight && info1Element) { // Check if userName exists
+        info1Element.textContent = 'Weight: ' + userWeight + ' Kg';
+    }
+
+    var formElement = document.querySelector('information');
+    if (formElement) {
+        formElement.onsubmit = laheta; // Attach the event handler
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var userHeight = localStorage.getItem('Height'); // Retrieve the age from Local Storage
+    var info2Element = document.getElementById('info2');
+    if (userHeight && info2Element) { // Check if userName exists
+        info2Element.textContent = 'Height: ' + userHeight + ' Cm';
     }
 
     var formElement = document.querySelector('information');

@@ -22,7 +22,7 @@ body, html {
     
 }
 
-#Name, #Weight, #Height, #kcal, #train, #sport, #intensity {
+#Name, #Weight, #Height, #kcal, #train, #sport, #intensity, #Age {
     border: 5px solid peru;
 }
 
@@ -79,4 +79,13 @@ body, html {
     }
     #del:hover{
         background-color: rgb(151, 19, 19);
+    }
+    .container1 {
+    
+        background-color: peru;
+        padding: 20px;
+        margin: auto;
+        width: 80%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
     }
