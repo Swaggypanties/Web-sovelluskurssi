@@ -12,17 +12,26 @@
                 <h1 id="wlcm">How was your day today?</h1>
                 <h2>Please submit<br> how much you have <br> trained<br> and<br> eaten<br></h2>
             </div>
-            <form onsubmit="laheta(event)" method="get" action="secondpage.html">
+            <form onsubmit="lahetan(event)" id="addpage" method="get" action="summarypage.html">
                     <div class="center1">
                         <h2>How many hours have you trained today?</h2>
-                        <input type="number" id="train" name="train" placeholder="How many hours?" required > <br> <br>
-                        <h2>Weight(kg)</h2>
-                        <input type="number" id="Weight" name="Weight" placeholder="weight(Kg)" >
+                        <input type="number" id="train" name="train" placeholder="How many hours?" required > 
+                        <br>
+                        <span id="trainsError" class="error-message"></span>
+                        <br> <br>
+                        <h2>How many calories(kcal) have you consumed today?</h2>
+                        <input type="number" id="kcal" name="kcal" placeholder="kcal" >
                         <br>
                         <span id="weightError" class="error-message"></span>
                         <br> <br>
-                        <h2>Height(cm)</h2>
-                        <input type="number" id="Height" name="Height" placeholder="Height(Cm)" >
+                        <h2>What type of training did you do?</h2>
+                        <select name="intensity" id="intensity" required>
+                            <option value="" selected="selected">Select the intensity</option>
+                          </select>
+                          <br><br>
+                        <select name="sport" id="sport" required>
+                            <option value="" selected="selected">Select the activity</option>
+                          </select>
                         <br>
                         <span id="heightError" class="error-message"></span>
                         <br> <br>
