@@ -164,6 +164,8 @@ function lahetan(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 
         localStorage.setItem("kcal", kcals);
         localStorage.setItem("train", trains);
+        localStorage.setItem("intensity", intensity);
+        localStorage.setItem("sport", sport);
 
         window.location.href = 'summarypage.html';
         
@@ -174,43 +176,59 @@ function lahetan(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+
+    var userHours = localStorage.getItem('train'); // Retrieve the age from Local Storage
+    var lisaaElement = document.getElementById('summary');
+    var userIntensity = localStorage.getItem('intensity');
+    var userKcal = localStorage.getItem('kcal')
+    if (userHours && lisaaElement && userIntensity && userKcal) { // Check if userHours exists
+        lisaaElement.textContent = 'You did' + userHours + ' of' + userIntensity + 'so that mean you burned' + userKcal;
+    }
+
+    var formElement = document.querySelector('addpage');
+    if (formElement) {
+        formElement.onsubmit = lisaa; // Attach the event handler
+    }
+});
+
 
 var subjectObject = {
     "None": {
-        "None":[],
+        "None":[0],
     },
     "Low intensity (1hr = 200kcal*)": {
-      "Frisbee golf":[],
-      "Walking": [],
-      "Archery": [],
-      "Other":[],
+      "Frisbee golf":[200],
+      "Walking": [200],
+      "Archery": [200],
+      "Other":[200],
     },
     "Light intensity(1hr = 300kcal*)": {
-        "Ping Pong": [],
-        "Light jog": ["SELECT", "UPDATE", "DELETE"],
-        "Badminton": [],
-        "Other": [],
+        "Ping Pong": [300],
+        "Light jog": [300],
+        "Badminton": [300],
+        "Other": [300],
     },
     "Moderate intensity(1hr = 400kcal*)": {
-        "Boxing(Bag workout)": [],
-        "Weight lifting": [],
-        "Excersie bike": [],
-        "Long hike with a backpack": [],
-        "Other": [],
+        "Boxing(Bag workout)": [400],
+        "Weight lifting": [400],
+        "Excersie bike": [400],
+        "Long hike with a backpack": [400],
+        "Other": [400],
       },
       "High intensity(1hr = 500kcal*)": {
-        "Aerobic": [],
-        "Running at brisk pace": [],
-        "Roller blading": [],
-        "Swimming": [],
-        "Other": [],
+        "Aerobic": [500],
+        "Running at brisk pace": [500],
+        "Roller blading": [500],
+        "Swimming": [500],
+        "Other": [500],
       },
       "Intense(1hr = 600kcal*)": {
-        "Basketball": [],
-        "Football": [],
-        "Ice hockey": [],
-        "Horse riding": [],
-        "Other": [],
+        "Basketball": [600],
+        "Football": [600],
+        "Ice hockey": [600],
+        "Horse riding": [600],
+        "Other": [600],
       },
     
 
