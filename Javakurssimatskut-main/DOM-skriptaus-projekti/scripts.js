@@ -2,22 +2,28 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     event.preventDefault();// estää sivun päivittämistä
 
     let nameElement = document.getElementById("Name");
+    let ageElement = document.getElementById("Age");
     let weightElement = document.getElementById("Weight");
     let heightElement = document.getElementById("Height");
+    let agesError = document.getElementById("ageError");
     let weightsError = document.getElementById("weightError");
     let heightsError = document.getElementById("heightError");
 
-    if (nameElement && weightElement && heightElement && weightsError && heightsError) {
+    if (nameElement && ageElement && weightElement && heightElement && agesError && weightsError && heightsError) {
         let hasError = false;
 
         let name = nameElement.value;
+        let age = ageElement.value;
         let weight = weightElement.value;
         let height = heightElement.value;
+    
         
 
 
+        ageElement.classList.remove("error");
         weightElement.classList.remove("error");
         heightElement.classList.remove("error");
+        agesError.textContent = "";
         weightsError.textContent = "";
         heightsError.textContent = "";
 
@@ -36,11 +42,19 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
         hasError = true;
     }
 
+    if (age === "" || Number(age) <= 0) {
+        heightElement.classList.add("error");
+        heightsError.textContent = "Please add a natural value";
+        hasError = true;
+    }
+
+
     
 
     if (!hasError){
 
         localStorage.setItem("Name", name);
+        localStorage.setItem("Age", age);
         localStorage.setItem("Weight", weight);
         localStorage.setItem("Height", height);
 
