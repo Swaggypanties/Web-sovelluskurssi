@@ -1,6 +1,6 @@
 function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     event.preventDefault();// estää sivun päivittämistä
-
+    //määrittää arvot
     let nameElement = document.getElementById("Name"); 
     let ageElement = document.getElementById("Age");
     let weightElement = document.getElementById("Weight");
@@ -27,20 +27,20 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
         weightsError.textContent = "";
         heightsError.textContent = "";
 
-
+        // Ei saa olla yhtä suuri tai pienempi kuin 0
     if (age === "" || Number(age) <= 0) {
         ageElement.classList.add("error");
         agesError.textContent = "Please add a natural value";
         hasError = true;
         }
     
-
+        // Ei saa olla yhtä suuri tai pienempi kuin 0
     if (weight === "" || Number(weight) <= 0) {
         weightElement.classList.add("error");
         weightsError.textContent = "Please add a natural value";
         hasError = true;
     }
-
+        // Ei saa olla yhtä suuri tai pienempi kuin 0
     if (height === "" || Number(height) <= 0) {
         heightElement.classList.add("error");
         heightsError.textContent = "Please add a natural value";
@@ -51,12 +51,12 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     
 
     if (!hasError){
-
+        //Tallentaa tiedot localstorageen
         localStorage.setItem("Name", name);
         localStorage.setItem("Age", age);
         localStorage.setItem("Weight", weight);
         localStorage.setItem("Height", height);
-
+        //Siirtyy tähän sivulle
         window.location.href = 'secondpage.html';
         
 
@@ -66,137 +66,161 @@ function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { // Hakee nimen ja lisää tervetuloa tekstiin
 
-    var userName = localStorage.getItem('Name'); // Retrieve the name from Local Storage
+    var userName = localStorage.getItem('Name');// hakee nimen
     var wlcmMessageElement = document.getElementById('wlcmMessage');
-    if (userName && wlcmMessageElement) { // Check if userName exists
+    if (userName && wlcmMessageElement) { 
         wlcmMessageElement.textContent = 'Welcome, ' + userName + '!';
     }
 
     var formElement = document.querySelector('information');
     if (formElement) {
-        formElement.onsubmit = laheta; // Attach the event handler
+        formElement.onsubmit = laheta;
     }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    var userAge = localStorage.getItem('Age'); // Retrieve the age from Local Storage
+    var userAge = localStorage.getItem('Age'); // Hakee iän localstoragesta
     var infoElement = document.getElementById('info');
-    if (userAge && infoElement) { // Check if userName exists
+    if (userAge && infoElement) { 
         infoElement.textContent = 'Age: ' + userAge;
     }
 
     var formElement = document.querySelector('information');
     if (formElement) {
-        formElement.onsubmit = laheta; // Attach the event handler
+        formElement.onsubmit = laheta;
     }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    var userWeight = localStorage.getItem('Weight'); // Retrieve the age from Local Storage
+    var userWeight = localStorage.getItem('Weight'); // Hakee painon localstoragesta
     var info1Element = document.getElementById('info1');
-    if (userWeight && info1Element) { // Check if userName exists
+    if (userWeight && info1Element) { 
         info1Element.textContent = 'Weight: ' + userWeight + ' Kg';
     }
 
     var formElement = document.querySelector('information');
     if (formElement) {
-        formElement.onsubmit = laheta; // Attach the event handler
+        formElement.onsubmit = laheta;
     }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    var userHeight = localStorage.getItem('Height'); // Retrieve the age from Local Storage
+    var userHeight = localStorage.getItem('Height'); //Hakee pituuden localstoragesta
     var info2Element = document.getElementById('info2');
-    if (userHeight && info2Element) { // Check if userName exists
+    if (userHeight && info2Element) {
         info2Element.textContent = 'Height: ' + userHeight + ' Cm';
     }
 
     var formElement = document.querySelector('information');
     if (formElement) {
-        formElement.onsubmit = laheta; // Attach the event handler
+        formElement.onsubmit = laheta; 
     }
 });
 
 function lisaa(event) { //Tämä tarkastaa syötteet ja sen sisällön addpage:st
     event.preventDefault();// estää sivun päivittämistä
-
+    //Määrittää arvot
     let kcalElement = document.getElementById("kcal");
     let trainElement = document.getElementById("train");
     let intensityElement = document.getElementById("intensity");
     let sportElement = document.getElementById("sport");
     let kcalsError = document.getElementById("kcalError");
     let trainsError = document.getElementById("trainsError");
-
-    if (kcalsError && trainsError) {
-        let hasError = false;
-
     
+    if (kcalsError && trainsError) {
+        let hasError = false; //tarkistaa onko tosi vai epätosi
+
+        //Määrittää arvot
         let kcals = kcalElement.value;
         let trains = trainElement.value;
         let intensity = intensityElement.value;
         let sport = sportElement.options[sportElement.selectedIndex].text;
 
 
-        kcalElement.classList.remove("error");
+        kcalElement.classList.remove("error"); //Poistaa errorin
         trainElement.classList.remove("error");
-        kcalsError.textContent = "";
+        kcalsError.textContent = ""; //Teksti kenttä mihin sitten ilmestyy error viesti
         trainsError.textContent = "";
 
     
-
+        //Tarkistaa jos on pienempi kuin nolla 
     if (kcals === "" || Number(kcals) < 0) {
-        kcalElement.classList.add("error");
-        kcalsError.textContent = "You can't have a negative value";
-        hasError = true;
+        kcalElement.classList.add("error");//Lisää error viestin
+        kcalsError.textContent = "You can't have a negative value";//tulostaa tämän viestin
+        hasError = true;//Tarkoittaa että virhe ilmestyi 
     }
 
-
+        //Tarkistaa jos on pienempi kuin nolla 
     if (trains === "" || Number(trains) < 0) {
-        trainElement.classList.add("error");
-        trainsError.textContent = "You can't have a negative value";
-        hasError = true;
+        trainElement.classList.add("error");//Lisää error viestin
+        trainsError.textContent = "You can't have a negative value";//tulostaa tämän viestin
+        hasError = true;//Tarkoittaa että virhe ilmestyi 
     }
 
     
 
     if (!hasError){
+        //Laskukaava Kuinka paljon kaloreita kulutti (aika*Treenimuoto)
+        let caloriesBurned = intensityOptions[intensity][sport][0] * parseInt(trains, 10);
+        //Määrittää arvot kun laittaa kokonaisuuteen
+        const newEntry = {
+            kcal: kcals,
+            train: trains,
+            intensity: intensity,
+            sport: sport,
+            caloriesBurned: caloriesBurned.toString()
+        };
 
-        let caloriesBurned = subjectObject[intensity][sport][0] * parseInt(trains, 10);
+        // Lisää kokonaisuuteen
+        addEntryToLocalStorage(newEntry);
 
-        localStorage.setItem("kcal", kcals);
-        localStorage.setItem("train", trains);
-        localStorage.setItem("intensity", intensity);
-        localStorage.setItem("sport", sport);
-        localStorage.setItem("caloriesBurned", caloriesBurned.toString());
-
+        // Vie tälle sivulle
         window.location.href = 'summarypage.html';
-        
-
+        }
     }
-
-    }
-
 }
 
-document.addEventListener('DOMContentLoaded', function() {  
-    var userHours = localStorage.getItem('train');
-    var userIntensity = localStorage.getItem('intensity');
-    var userSport = localStorage.getItem('sport');
-    var userKcal = localStorage.getItem('kcal');
-    var caloriesBurned = localStorage.getItem('caloriesBurned');
+function addEntryToLocalStorage(entry) { //Käytin tässä funktiossa chatGPT
+// Hakee nykyisen datan tai sitten määrittää uuden
+let existingEntries = localStorage.getItem('workoutEntries');
+existingEntries = existingEntries ? JSON.parse(existingEntries) : [];
+
+// Lisää uuden merkinnän
+existingEntries.push(entry);
+
+// Tallentaa localstorageen
+localStorage.setItem('workoutEntries', JSON.stringify(existingEntries));
+}
+
+document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä funktiossa chatGPT
+    var storedEntries = localStorage.getItem('workoutEntries');
     var summaryElement = document.getElementById('summary');
 
-    if (userHours && userIntensity && userSport && userKcal && caloriesBurned && summaryElement) {
-        summaryElement.textContent = 'You did ' + userHours + ' hours of ' +userSport+ ', burning an estimated ' + caloriesBurned + 'kcal.';
+    if (storedEntries && summaryElement) {
+        // Pistää JSON ryhmiin
+        var entries = JSON.parse(storedEntries);
+
+        // Varmistaa että ei ole tyhjä ja hakee uusimman sisällön
+        if (entries.length > 0) {
+            var mostRecentEntry = entries[entries.length - 1]; // Viimeisin lisäys on uusin
+
+            // Käyttää uusimman syötteen yhteenvedossa
+            summaryElement.innerHTML = 'You did ' + mostRecentEntry.train + ' hours of ' + mostRecentEntry.sport+
+                                        ', burning an estimated ' + mostRecentEntry.caloriesBurned + ' kcal.<br><br>'+
+                                        'You consumed '+ mostRecentEntry.kcal + ' kcal'    ;
+        } else {
+            // Jos nyt ei ole lisätty mitään
+            summaryElement.textContent = 'No workout data available. Please add a workout session.';
+        }
     }
 });
 
-var subjectObject = { //Tässä ovat vetolaatikon sisältö
+var intensityOptions = { //Tässä ovat vetolaatikon sisältö ja niitten arvot
     "None": {
         "None":[0],
     },
@@ -236,20 +260,142 @@ var subjectObject = { //Tässä ovat vetolaatikon sisältö
     
 
   }
-  window.onload = function() {  //Tässä kun valitsee sen ekan rivin niin se avaa sen toisen rivin vaihtoehdot
-    var subjectSel = document.getElementById("intensity");
-    var topicSel = document.getElementById("sport");
-    for (var x in subjectObject) {
-      subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  window.onload = function() {  //Tästä kun valitsee sen ekan rivin niin se avaa sen toisen rivin vaihtoehdot
+    var intensitySel = document.getElementById("intensity");
+    var sportSel = document.getElementById("sport");
+    for (var x in intensityOptions) {
+      intensitySel.options[intensitySel.options.length] = new Option(x, x);
     }
 
-    subjectSel.onchange = function() {
-        //empty Chapters- and Topics- dropdowns
+    intensitySel.onchange = function() {
+        
 
-        topicSel.length = 1;
-        //display correct values
-        for (var y in subjectObject[this.value]) {
-          topicSel.options[topicSel.options.length] = new Option(y, y);
+        sportSel.length = 1;
+        
+        for (var y in intensityOptions[this.value]) {
+          sportSel.options[sportSel.options.length] = new Option(y, y);
         }
     }
 }
+document.addEventListener('DOMContentLoaded', function() { //Käytin tässä funktiossa chatGPT
+    var storedEntries = localStorage.getItem('workoutEntries');
+    var totalElement = document.getElementById('totality');
+
+    if (storedEntries && totalElement) {
+        // Pistää JSON-merkkijonon ryhmiin
+        var entries = JSON.parse(storedEntries);
+
+        // Alustaa muuttujat
+        var totalHours = 0;
+        var totalCaloriesBurned = 0;
+        var totalKcalConsumed = 0;
+        // Kattoo mitä aktiviteettei tulee
+        var sportOccurrences = {};
+
+        // Kattoo kaikki tulokset
+        entries.forEach(function(entry) {
+            totalHours += parseInt(entry.train, 10);
+            totalCaloriesBurned += parseInt(entry.caloriesBurned, 10);
+            totalKcalConsumed += parseInt(entry.kcal, 10);
+
+            // Lisää aktiviteetin(sport) muuttuja sportOccurenciin
+            if (sportOccurrences[entry.sport]) {
+                sportOccurrences[entry.sport]++;
+            } else {
+                sportOccurrences[entry.sport] = 1;
+            }
+        });
+
+        // Kattoo mikä laji ilmestyy eniten
+        var favoriteSport = Object.keys(sportOccurrences).reduce(function(a, b) { return sportOccurrences[a] > sportOccurrences[b] ? a : b; }, '');
+
+        // Tässä on datan kokonaisuus
+        totalElement.innerHTML = 'Total hours you have worked out: ' + totalHours +
+                                 '<br><br> Your favorite sport: ' + favoriteSport +
+                                 '<br><br> Total calories burned: ' + totalCaloriesBurned +
+                                 '<br><br> Total calories consumed: ' + totalKcalConsumed + 'kcal.<br>';
+    } else {
+        // Jos nyt ei sattumoisin lisätty mitään
+        if (totalElement) {
+            totalElement.textContent = 'No workout data available. Please add a workout session.';
+        }
+    }
+});
+
+
+
+function mbrFormula() { //MBR Laskukaava
+    //Hakee muuttujien arvot
+    let weight = parseFloat(localStorage.getItem('Weight'));    
+    let height = parseFloat(localStorage.getItem('Height')); 
+    let age = parseInt(localStorage.getItem('Age'), 10); 
+    // Tarkistaa vielä että jos ei nyt ole mitään lisätty
+    if (!isNaN(weight) && !isNaN(height) && !isNaN(age)) {
+        // Laskukaava
+        return (10 * weight) + (6.25 * height) - (5 * age) + 5;
+    } else {
+        // Jos nyt sattumoisin puuttuu jotain
+        console.error("One or more values are missing from localStorage");
+        return null;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() { //Tulostaa MBR tuloksen
+    var mbrElement = document.getElementById('MBR');
+    if (mbrElement) {
+
+        let mbrValue = mbrFormula();
+        if(mbrValue !==null){
+        mbrElement.innerHTML = 'Your MBR(Metabolic rate) <br> according to your <br> age,height and weight.<br><br>' + mbrValue + ' kcal' ;
+    }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() { //Tulostaa MBR tuloksen
+    var mbrElement = document.getElementById('info3');
+    if (mbrElement) {
+
+        let mbrValue = mbrFormula();
+        if(mbrValue !==null){
+        mbrElement.innerHTML = 'MBR: ' + mbrValue + 'kcal'  ;
+    }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var deleteButton = document.getElementById('del');
+
+    if (deleteButton) {
+        deleteButton.addEventListener('click', function() {
+            // Poistaa kaiken
+            localStorage.clear();
+
+            // Vie takaisin alkuun
+            window.location.href = 'frontpage.html';
+        });
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä funktiossa chatGPT
+    var storedEntries = localStorage.getItem('workoutEntries');
+    var recentElement = document.getElementById('recent');
+
+    if (storedEntries && recentElement) {
+        // Pistää JSON ryhmiin
+        var entries = JSON.parse(storedEntries);
+
+        // Varmistaa että ei ole tyhjä ja hakee uusimman sisällön
+        if (entries.length > 0) {
+            var mostRecentEntry = entries[entries.length - 1]; // Viimeisin lisäys on uusin
+
+            // Käyttää uusimman syötteen yhteenvedossa
+            recentElement.innerHTML = mostRecentEntry.train + ' hours of ' + mostRecentEntry.sport+
+                                        '<br> burning an estimated ' + mostRecentEntry.caloriesBurned + 'kcal.<br><br>'
+                                        + 'You consumed ' + mostRecentEntry.kcal + 'kcal';
+        } else {
+            // Jos nyt ei ole lisätty mitään
+            recentElement.textContent = 'No workout data available. Please add a workout session.';
+        }
+    }
+});

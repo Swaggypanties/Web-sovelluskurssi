@@ -1,7 +1,7 @@
 <!doctype html>
 <HTML lang="en">
 	<head>
-		<title>Update data</title>
+		<title>Add new entry</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="stylefp.css">
 	</head>
@@ -10,7 +10,7 @@
         <div class="container">
             <div class="center" id="wlcm">
                 <h1 id="wlcm">How was your day today?</h1>
-                <h2>Please submit<br> how much you have <br> trained<br> and<br> eaten<br></h2>
+                <h2>Please submit<br> how much you have <br> trained and eaten today<br></h2>
             </div>
             <form onsubmit="lisaa(event)" id="addpage" method="get" action="summarypage.html">
                     <div class="center1">
@@ -24,7 +24,8 @@
                         <br>
                         <span id="kcalError" class="error-message"></span>
                         <br> <br>
-                        <h2>What type of training did you do?</h2>
+                        <h2>What type of training did you do today?</h2>
+                    
                         <select name="intensity" id="intensity" required>
                             <option value="" selected="selected">Select the intensity</option>
                           </select>
@@ -32,9 +33,11 @@
                         <select name="sport" id="sport" required>
                             <option value="" selected="selected">Select the activity</option>
                           </select>
+                          <h4>*calories burned is estimated if your weight is 80kg*</h4>
                         <br>
                         <span id="heightError" class="error-message"></span>
-                        <br> <br>
+                        <br>
+                        
                         
                         <input type="submit" value="Submit" id="submit">
                     </div>
