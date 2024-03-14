@@ -1,7 +1,7 @@
 function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     event.preventDefault();// estää sivun päivittämistä
 
-    let nameElement = document.getElementById("Name");
+    let nameElement = document.getElementById("Name"); 
     let ageElement = document.getElementById("Age");
     let weightElement = document.getElementById("Weight");
     let heightElement = document.getElementById("Height");
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function lisaa(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
+function lisaa(event) { //Tämä tarkastaa syötteet ja sen sisällön addpage:st
     event.preventDefault();// estää sivun päivittämistä
 
     let kcalElement = document.getElementById("kcal");
@@ -183,7 +183,7 @@ function lisaa(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {  
     var userHours = localStorage.getItem('train');
     var userIntensity = localStorage.getItem('intensity');
     var userSport = localStorage.getItem('sport');
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-var subjectObject = {
+var subjectObject = { //Tässä ovat vetolaatikon sisältö
     "None": {
         "None":[0],
     },
@@ -236,7 +236,7 @@ var subjectObject = {
     
 
   }
-  window.onload = function() {
+  window.onload = function() {  //Tässä kun valitsee sen ekan rivin niin se avaa sen toisen rivin vaihtoehdot
     var subjectSel = document.getElementById("intensity");
     var topicSel = document.getElementById("sport");
     for (var x in subjectObject) {
