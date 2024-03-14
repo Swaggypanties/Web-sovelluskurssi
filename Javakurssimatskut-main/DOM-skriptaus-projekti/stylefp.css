@@ -89,3 +89,6 @@ body, html {
     #submit, #sport, #intensity{
         cursor: pointer;
     }
+    #entry{
+        background-color: peru;
+    }
