@@ -122,11 +122,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function lahetan(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
+function lisaa(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     event.preventDefault();// estää sivun päivittämistä
 
     let kcalElement = document.getElementById("kcal");
     let trainElement = document.getElementById("train");
+    let intensityElement = document.getElementById("intensity");
+    let sportElement = document.getElementById("sport");
     let kcalsError = document.getElementById("kcalError");
     let trainsError = document.getElementById("trainsError");
 
@@ -136,6 +138,8 @@ function lahetan(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
     
         let kcals = kcalElement.value;
         let trains = trainElement.value;
+        let intensity = intensityElement.value;
+        let sport = sportElement.options[sportElement.selectedIndex].text;
 
 
         kcalElement.classList.remove("error");
@@ -162,10 +166,13 @@ function lahetan(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 
     if (!hasError){
 
+        let caloriesBurned = subjectObject[intensity][sport][0] * parseInt(trains, 10);
+
         localStorage.setItem("kcal", kcals);
         localStorage.setItem("train", trains);
         localStorage.setItem("intensity", intensity);
         localStorage.setItem("sport", sport);
+        localStorage.setItem("caloriesBurned", caloriesBurned.toString());
 
         window.location.href = 'summarypage.html';
         
@@ -177,21 +184,17 @@ function lahetan(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-
-    var userHours = localStorage.getItem('train'); // Retrieve the age from Local Storage
-    var lisaaElement = document.getElementById('summary');
+    var userHours = localStorage.getItem('train');
     var userIntensity = localStorage.getItem('intensity');
-    var userKcal = localStorage.getItem('kcal')
-    if (userHours && lisaaElement && userIntensity && userKcal) { // Check if userHours exists
-        lisaaElement.textContent = 'You did' + userHours + ' of' + userIntensity + 'so that mean you burned' + userKcal;
-    }
+    var userSport = localStorage.getItem('sport');
+    var userKcal = localStorage.getItem('kcal');
+    var caloriesBurned = localStorage.getItem('caloriesBurned');
+    var summaryElement = document.getElementById('summary');
 
-    var formElement = document.querySelector('addpage');
-    if (formElement) {
-        formElement.onsubmit = lisaa; // Attach the event handler
+    if (userHours && userIntensity && userSport && userKcal && caloriesBurned && summaryElement) {
+        summaryElement.textContent = 'You did ' + userHours + ' hours of ' +userSport+ ', burning an estimated ' + caloriesBurned + 'kcal.';
     }
 });
-
 
 var subjectObject = {
     "None": {
@@ -201,34 +204,34 @@ var subjectObject = {
       "Frisbee golf":[200],
       "Walking": [200],
       "Archery": [200],
-      "Other":[200],
+      "some other sport":[200],
     },
     "Light intensity(1hr = 300kcal*)": {
         "Ping Pong": [300],
         "Light jog": [300],
         "Badminton": [300],
-        "Other": [300],
+        "some other sport": [300],
     },
     "Moderate intensity(1hr = 400kcal*)": {
         "Boxing(Bag workout)": [400],
         "Weight lifting": [400],
         "Excersie bike": [400],
         "Long hike with a backpack": [400],
-        "Other": [400],
+        "some other sport": [400],
       },
       "High intensity(1hr = 500kcal*)": {
         "Aerobic": [500],
         "Running at brisk pace": [500],
         "Roller blading": [500],
         "Swimming": [500],
-        "Other": [500],
+        "some other sport": [500],
       },
       "Intense(1hr = 600kcal*)": {
         "Basketball": [600],
         "Football": [600],
         "Ice hockey": [600],
         "Horse riding": [600],
-        "Other": [600],
+        "some other sport": [600],
       },
     
 
