@@ -86,7 +86,7 @@ body, html {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
     }
-    #submit, #sport, #intensity{
+    #submit, #sport, #intensityn, #input, #enableEdit, #enableEdit1, #enableEdit2, #enableEdit3{
         cursor: pointer;
     }
     #entry{

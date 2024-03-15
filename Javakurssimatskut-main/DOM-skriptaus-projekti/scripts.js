@@ -379,6 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {//Poistaa kaiken tiedo
         deleteButton.addEventListener('click', function() {
             // Poistaa kaiken
             localStorage.clear();
+            alert('You have deleted all of your entries. Returning to the beginning');
 
             // Vie takaisin alkuun
             window.location.href = 'frontpage.html';
