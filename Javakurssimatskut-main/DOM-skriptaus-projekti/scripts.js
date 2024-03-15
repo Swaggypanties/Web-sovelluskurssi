@@ -399,3 +399,159 @@ document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä fu
         }
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() { 
+    var enableEditButton = document.getElementById('enableEdit');
+    if (enableEditButton) {
+        enableEditButton.addEventListener('click', function() {
+            // Enable fields
+            document.getElementById('Name').disabled = false;
+            
+
+            // Optionally add the required attribute
+            document.getElementById('Name').required = false;
+            
+            // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
+            enableEditButton.style.display = 'none';
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() { 
+    var enableEditButton = document.getElementById('enableEdit1');
+    if (enableEditButton) {
+        enableEditButton.addEventListener('click', function() {
+            // Enable fields
+            
+            document.getElementById('Age').disabled = false;
+            
+
+            // Optionally add the required attribute
+            
+            document.getElementById('Age').required = true;
+           
+            // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
+            enableEditButton.style.display = 'none';
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() { 
+    var enableEditButton = document.getElementById('enableEdit2');
+    if (enableEditButton) {
+        enableEditButton.addEventListener('click', function() {
+            // Enable fields
+            
+            document.getElementById('Weight').disabled = false;
+            
+
+            // Optionally add the required attribute
+            
+            document.getElementById('Weight').required = true;
+           
+
+            // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
+            enableEditButton.style.display = 'none';
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() { 
+    var enableEditButton = document.getElementById('enableEdit3');
+    if (enableEditButton) {
+        enableEditButton.addEventListener('click', function() {
+            // Enable fields
+            
+            document.getElementById('Height').disabled = false;
+
+            // Optionally add the required attribute
+            
+            document.getElementById('Height').required = true;
+
+            // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
+            enableEditButton.style.display = 'none';
+        });
+    }
+});
+
+
+function paivita(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
+    event.preventDefault();// estää sivun päivittämistä
+    //määrittää arvot
+    let nameElement = document.getElementById("Name") ; 
+    let ageElement = document.getElementById("Age");
+    let weightElement = document.getElementById("Weight");
+    let heightElement = document.getElementById("Height");
+    let agesError = document.getElementById("ageError");
+    let weightsError = document.getElementById("weightError");
+    let heightsError = document.getElementById("heightError");
+
+    if (nameElement && ageElement && weightElement && heightElement && agesError && weightsError && heightsError) {
+        let hasError = false;
+
+        let name = nameElement.value;
+        let age = ageElement.value;
+        let weight = weightElement.value;
+        let height = heightElement.value;
+
+        let elements = [ageElement, weightElement, heightElement, nameElement];
+    let errors = [agesError, weightsError, heightsError, nameElement];
+    elements.forEach(element => element.classList.remove("error"));
+    errors.forEach(error => error.textContent = "");
+    
+        
+
+
+        ageElement.classList.remove("error");
+        weightElement.classList.remove("error");
+        heightElement.classList.remove("error");
+        agesError.textContent = "";
+        weightsError.textContent = "";
+        heightsError.textContent = "";
+
+        // Ei saa olla yhtä suuri tai pienempi kuin 0
+    if (!ageElement.disabled && (age === "" || Number(age) <= 0)) {
+        ageElement.classList.add("error");
+        agesError.textContent = "Please add a natural value";
+        hasError = true;
+        }
+    
+        // Ei saa olla yhtä suuri tai pienempi kuin 0
+    if (!weightElement.disabled && (weight === "" || Number(weight) <= 0)) {
+        weightElement.classList.add("error");
+        weightsError.textContent = "Please add a natural value";
+        hasError = true;
+    }
+        // Ei saa olla yhtä suuri tai pienempi kuin 0
+    if (!heightElement.disabled && (height === "" || Number(height)) <= 0) {
+        heightElement.classList.add("error");
+        heightsError.textContent = "Please add a natural value";
+        hasError = true;
+    }
+
+
+    
+
+    if (!hasError) { //chatGPT hyödynnetty tässä. jos jotain kohtaa tai ei mitään päivitä niin säilyttää nykyset arvot
+        let fieldsToUpdate = [
+            { element: nameElement, key: "Name" },
+            { element: ageElement, key: "Age" },
+            { element: weightElement, key: "Weight" },
+            { element: heightElement, key: "Height" }
+        ];
+
+        fieldsToUpdate.forEach(({ element, key }) => {
+            if (!element.disabled && localStorage.getItem(key) !== element.value) {
+                localStorage.setItem(key, element.value);
+            }
+        });
+
+
+        window.location.href = 'secondpage.html';
+        
+
+    }
+
+    }
+
+}
