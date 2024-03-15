@@ -22,11 +22,11 @@ body, html {
     
 }
 
-
-.error{
-    border: 2px solid red;
+/* Tämä luo sen virhe kehyksen syötteiden sisälle*/
+.error{  
+    border: 2px solid red; 
 }
-
+/*Virhe tekstin väri*/
 .error-message {
     color: red;
     font-size: 0.8rem;
@@ -55,7 +55,7 @@ body, html {
     }
     .button {
         display: inline-block;
-        background-color: #4CAF50; /* Green */
+        background-color: #4CAF50;
         color: black;
         padding: 15px 25px;
         text-align: center;
@@ -86,7 +86,7 @@ body, html {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
     }
-    #submit, #sport, #intensityn, #input, #enableEdit, #enableEdit1, #enableEdit2, #enableEdit3{
+    #submit, #sport, #intensityn, #input, #enableEdit, #enableEdit1, #enableEdit2, #enableEdit3{ /*Muuttaa cursorin silleen et näyttää että pystyy painamaan napista*/
         cursor: pointer;
     }
     #entry{

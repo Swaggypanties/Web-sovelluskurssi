@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä fu
     var recentElement = document.getElementById('recent');
 
     if (storedEntries && recentElement) {
-        // Pistää JSON ryhmiin
+        // Pistää JSON listoiksi
         var entries = JSON.parse(storedEntries);
 
         // Varmistaa että ei ole tyhjä ja hakee uusimman sisällön
@@ -418,6 +418,7 @@ document.addEventListener('DOMContentLoaded', function() { //Funktio joka laitta
             // Ottaa syötteen käyttöön
             document.getElementById('Name').disabled = false;
             document.getElementById('Name').required = false;
+            document.getElementById('Name').hidden = false;
             
             // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
             enableEditButton.style.display = 'none';
@@ -432,6 +433,7 @@ document.addEventListener('DOMContentLoaded', function() { //Funktio joka laitta
             // Ottaa syötteen käyttöön
             document.getElementById('Age').disabled = false;
             document.getElementById('Age').required = true;
+            document.getElementById('Age').hidden = false;
            
             // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
             enableEditButton.style.display = 'none';
@@ -447,6 +449,7 @@ document.addEventListener('DOMContentLoaded', function() { //Funktio joka laitta
             
             document.getElementById('Weight').disabled = false;
             document.getElementById('Weight').required = true;
+            document.getElementById('Weight').hidden = false;
             // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
             enableEditButton.style.display = 'none';
         });
@@ -461,6 +464,7 @@ document.addEventListener('DOMContentLoaded', function() { //Funktio joka laitta
             
             document.getElementById('Height').disabled = false;
             document.getElementById('Height').required = true;
+            document.getElementById('Height').hidden = false;
 
             // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
             enableEditButton.style.display = 'none';
