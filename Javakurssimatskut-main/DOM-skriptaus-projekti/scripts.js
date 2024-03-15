@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä fu
                                         'You consumed '+ mostRecentEntry.kcal + ' kcal'    ;
         } else {
             // Jos nyt ei ole lisätty mitään
-            summaryElement.textContent = 'No workout data available. Please add a workout session.';
+            summaryElement.textContent = 'No entry data available. Please add an entry.';
         }
     }
 });
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() { //Käytin tässä fun
     } else {
         // Jos nyt ei sattumoisin lisätty mitään
         if (totalElement) {
-            totalElement.textContent = 'No workout data available. Please add a workout session.';
+            totalElement.textContent = 'No entry data available. Please add an entry.';
         }
     }
 });
@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä fu
                                         + 'You consumed ' + mostRecentEntry.kcal + 'kcal';
         } else {
             // Jos nyt ei ole lisätty mitään
-            recentElement.textContent = 'No workout data available. Please add a workout session.';
+            recentElement.textContent = 'No entry data available. Please add an entry.';
         }
     }
 });

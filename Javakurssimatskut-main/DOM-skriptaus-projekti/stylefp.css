@@ -90,5 +90,8 @@ body, html {
         cursor: pointer;
     }
     #entry{
+        background-color: rgb(182, 105, 28);
+    }
+    #entry:hover{
         background-color: peru;
     }
