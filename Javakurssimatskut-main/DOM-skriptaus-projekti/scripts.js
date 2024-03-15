@@ -410,15 +410,12 @@ document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä fu
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() { 
+document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa napin päälle
     var enableEditButton = document.getElementById('enableEdit');
     if (enableEditButton) {
         enableEditButton.addEventListener('click', function() {
-            // Enable fields
+            // Ottaa syötteen käyttöön
             document.getElementById('Name').disabled = false;
-            
-
-            // Optionally add the required attribute
             document.getElementById('Name').required = false;
             
             // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
@@ -427,17 +424,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() { 
+document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa napin päälle
     var enableEditButton = document.getElementById('enableEdit1');
     if (enableEditButton) {
         enableEditButton.addEventListener('click', function() {
-            // Enable fields
-            
+            // Ottaa syötteen käyttöön
             document.getElementById('Age').disabled = false;
-            
-
-            // Optionally add the required attribute
-            
             document.getElementById('Age').required = true;
            
             // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
@@ -446,36 +438,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() { 
+document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa napin päälle
     var enableEditButton = document.getElementById('enableEdit2');
     if (enableEditButton) {
         enableEditButton.addEventListener('click', function() {
-            // Enable fields
+            // Ottaa syötteen käyttöön
             
             document.getElementById('Weight').disabled = false;
-            
-
-            // Optionally add the required attribute
-            
             document.getElementById('Weight').required = true;
-           
-
             // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
             enableEditButton.style.display = 'none';
         });
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() { 
+document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa napin päälle
     var enableEditButton = document.getElementById('enableEdit3');
     if (enableEditButton) {
         enableEditButton.addEventListener('click', function() {
-            // Enable fields
+            // Ottaa syötteen käyttöön
             
             document.getElementById('Height').disabled = false;
-
-            // Optionally add the required attribute
-            
             document.getElementById('Height').required = true;
 
             // Piilottaa napin niin on pakko päivittää tiedot jos painaa siitä
