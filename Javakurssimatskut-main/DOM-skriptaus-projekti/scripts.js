@@ -1,4 +1,4 @@
-function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
+function laheta(event) { //Tämä tarkastaa ssyötteet ja sen sisällön ja antaa virhe ilmoituksen jos semmoinen löytyy
     event.preventDefault();// estää sivun päivittämistä
     //määrittää arvot
     let nameElement = document.getElementById("Name"); 
@@ -185,7 +185,7 @@ function lisaa(event) { //Tämä tarkastaa syötteet ja sen sisällön addpage:s
     }
 }
 
-function addEntryToLocalStorage(entry) { //Käytin tässä funktiossa chatGPT
+function addEntryToLocalStorage(entry) { //Käytin tässä funktiossa chatGPT*1
 // Hakee nykyisen datan tai sitten määrittää uuden
 let existingEntries = localStorage.getItem('workoutEntries');
 existingEntries = existingEntries ? JSON.parse(existingEntries) : [];
@@ -197,7 +197,7 @@ existingEntries.push(entry);
 localStorage.setItem('workoutEntries', JSON.stringify(existingEntries));
 }
 
-document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä funktiossa chatGPT
+document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä funktiossa chatGPT*2
     var storedEntries = localStorage.getItem('workoutEntries');
     var summaryElement = document.getElementById('summary');
 
@@ -277,7 +277,7 @@ var intensityOptions = { //Tässä ovat vetolaatikon sisältö ja niitten arvot
         }
     }
 }
-document.addEventListener('DOMContentLoaded', function() { //Käytin tässä funktiossa chatGPT
+document.addEventListener('DOMContentLoaded', function() { //Käytin tässä funktiossa chatGPT*3. Prosenttien kanssa
     var storedEntries = localStorage.getItem('workoutEntries');
     var totalElement = document.getElementById('totality');
 
@@ -291,6 +291,7 @@ document.addEventListener('DOMContentLoaded', function() { //Käytin tässä fun
         var totalKcalConsumed = 0;
         // Kattoo mitä aktiviteettei tulee
         var sportOccurrences = {};
+        var totalActivities = 0;
 
         // Kattoo kaikki tulokset
         entries.forEach(function(entry) {
@@ -298,20 +299,29 @@ document.addEventListener('DOMContentLoaded', function() { //Käytin tässä fun
             totalCaloriesBurned += parseInt(entry.caloriesBurned, 10);
             totalKcalConsumed += parseInt(entry.kcal, 10);
 
-            // Lisää aktiviteetin(sport) muuttuja sportOccurenciin
-            if (sportOccurrences[entry.sport]) {
-                sportOccurrences[entry.sport]++;
-            } else {
-                sportOccurrences[entry.sport] = 1;
+            
+
+            // Laskee kaikki aktiviteetit
+            if (entry.sport) {
+                sportOccurrences[entry.sport] = (sportOccurrences[entry.sport] || 0) + 1;
+                totalActivities++;
             }
         });
-
-        // Kattoo mikä laji ilmestyy eniten
-        var favoriteSport = Object.keys(sportOccurrences).reduce(function(a, b) { return sportOccurrences[a] > sportOccurrences[b] ? a : b; }, '');
+        //Tarkistaa mitä on eniten ja sen määrä
+        var favSport = '', maxCount = 0;
+        for (var sport in sportOccurrences) {
+            if (sportOccurrences[sport] > maxCount) {
+                favSport = sport;
+                maxCount = sportOccurrences[sport];
+            }
+        }
+        //kattoo prosentuaalisesti suosituimman
+        var percentage = totalActivities ? ((maxCount / totalActivities) * 100).toFixed(2) : 0;
+        
 
         // Tässä on datan kokonaisuus
         totalElement.innerHTML = 'Total hours you have worked out: ' + totalHours +
-                                 '<br><br> Your favorite sport: ' + favoriteSport +
+                                 '<br><br> Your favorite sport: ' + favSport + ' '+ percentage + '% '+
                                  '<br><br> Total calories burned: ' + totalCaloriesBurned +
                                  '<br><br> Total calories consumed: ' + totalKcalConsumed + 'kcal.<br>';
     } else {
@@ -362,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function() { //Tulostaa MBR tuloks
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {//Poistaa kaiken tiedon ja aloittaa ohjelman alusta
     var deleteButton = document.getElementById('del');
 
     if (deleteButton) {
@@ -377,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä funktiossa chatGPT
+document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä funktiossa chatGPT*4
     var storedEntries = localStorage.getItem('workoutEntries');
     var recentElement = document.getElementById('recent');
 
