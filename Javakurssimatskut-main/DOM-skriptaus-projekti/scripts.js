@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function() {  //Käytin tässä fu
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa napin päälle
+document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa syötekentän päälle
     var enableEditButton = document.getElementById('enableEdit');
     if (enableEditButton) {
         enableEditButton.addEventListener('click', function() {
@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function() { //Funktio joka laitta
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa napin päälle
+document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa syötekentän päälle
     var enableEditButton = document.getElementById('enableEdit1');
     if (enableEditButton) {
         enableEditButton.addEventListener('click', function() {
@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function() { //Funktio joka laitta
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa napin päälle
+document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa syötekentän päälle
     var enableEditButton = document.getElementById('enableEdit2');
     if (enableEditButton) {
         enableEditButton.addEventListener('click', function() {
@@ -453,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function() { //Funktio joka laitta
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa napin päälle
+document.addEventListener('DOMContentLoaded', function() { //Funktio joka laittaa syötekentän päälle
     var enableEditButton = document.getElementById('enableEdit3');
     if (enableEditButton) {
         enableEditButton.addEventListener('click', function() {
@@ -526,7 +526,7 @@ function paivita(event) { //Tämä tarkastaa ssyötteet ja sen sisällön
 
     
 
-    if (!hasError) { //chatGPT hyödynnetty tässä. jos jotain kohtaa tai ei mitään päivitä niin säilyttää nykyset arvot
+    if (!hasError) { //chatGPT hyödynnetty tässä. Jos jotain kohtaa tai ei mitään päivitä niin säilyttää nykyset arvot
         let fieldsToUpdate = [
             { element: nameElement, key: "Name" },
             { element: ageElement, key: "Age" },
